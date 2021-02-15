@@ -1,0 +1,14 @@
+ radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    environment:
+        - PUID=1000
+        - PGID=100
+        - TZ=America/New_York
+        - UMASK_SET=022 #optional
+    volumes:
+        - /srv/dev-disk-by-label-data/appdata/radarr:/config
+        - /download-path:/media
+    restart: unless-stopped
+    ports: 
+        - 7878:7878
