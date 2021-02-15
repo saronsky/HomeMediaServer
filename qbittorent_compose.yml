@@ -1,0 +1,13 @@
+ qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    network_mode: container:vpn
+    environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=America/New_York
+      - WEBUI_PORT=8080
+    volumes:
+      - /srv/dev-disk-by-label-data/appdata/qbittorent:/config
+      - /download-path:/downloads
+    restart: unless-stopped
