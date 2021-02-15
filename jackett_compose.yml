@@ -1,0 +1,15 @@
+ jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    environment:
+        - PUID=1000
+        - PGID=100
+        - TZ=America/New_York
+        - AUTO_UPDATE=true #optional
+        - RUN_OPTS=#optional
+    volumes:
+        - /srv/dev-disk-by-label-data/appdata/jackett:/config
+        #Jackett only needs config
+    restart: unless-stopped
+    ports: 
+        - 9117:9117
